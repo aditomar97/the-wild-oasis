@@ -1,4 +1,0 @@
-
-curl 'https://hkzrumpnwutrbdhiefnt.supabase.co/rest/v1/cabins?select=*' \
--H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrenJ1bXBud3V0cmJkaGllZm50Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwOTcwNzIsImV4cCI6MjA3NTY3MzA3Mn0.qjWONjswOmispJWDBP-osw8Ea-4izjoU41fH3u6EOQU" \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrenJ1bXBud3V0cmJkaGllZm50Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwOTcwNzIsImV4cCI6MjA3NTY3MzA3Mn0.qjWONjswOmispJWDBP-osw8Ea-4izjoU41fH3u6EOQU"
