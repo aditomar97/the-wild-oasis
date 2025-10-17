@@ -2,13 +2,30 @@ import { useState } from "react";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
-import FormRowVertical from "../../ui/FormRowVertical";
-
+import FormRowVertical from "../../ui/FormRow";
+import { useLogin } from "./useLogin";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import SpinnerMini from "../../ui/SpinnerMini";
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { isLogging, logging } = useLogin();
+  const navigate = useNavigate();
 
-  function handleSubmit() {}
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!email || !password) return;
+    logging(
+      { email, password },
+      {
+        onSettled: () => {
+          setEmail("");
+          setPassword("");
+        },
+      }
+    );
+  }
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -32,7 +49,7 @@ function LoginForm() {
         />
       </FormRowVertical>
       <FormRowVertical>
-        <Button size="large">Login</Button>
+        <Button size="large">{!isLogging ? "Login" : <SpinnerMini />}</Button>
       </FormRowVertical>
     </Form>
   );

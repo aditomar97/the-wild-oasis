@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-
+import { useSearchParams } from "react-router-dom";
 const StyledFilter = styled.div`
   border: 1px solid var(--color-grey-100);
   background-color: var(--color-grey-0);
@@ -33,3 +33,33 @@ const FilterButton = styled.button`
     color: var(--color-brand-50);
   }
 `;
+
+const Filter = ({ fitlerField, options }) => {
+  console.log(fitlerField);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const handleClick = (value) => {
+    searchParams.set(fitlerField, value);
+    if (searchParams.get("page")) searchParams.set("page", 1);
+    setSearchParams(searchParams);
+  };
+  const currentFilterValue =
+    searchParams.get(fitlerField) || options.at(0).value;
+  return (
+    <StyledFilter>
+      {options.map((item, index) => {
+        return (
+          <FilterButton
+            onClick={() => handleClick(item.value)}
+            key={index}
+            active={item.value === currentFilterValue}
+          >
+            {item.label}
+          </FilterButton>
+        );
+      })}
+    </StyledFilter>
+  );
+};
+
+export default Filter;
