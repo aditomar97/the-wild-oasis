@@ -7,7 +7,7 @@ import Tag from "../../ui/Tag";
 import ButtonGroup from "../../ui/ButtonGroup";
 import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
-
+import Empty from "../../ui/Empty";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useNavigate, useParams } from "react-router-dom";
 import { useBooking } from "./useBooking";
@@ -39,7 +39,8 @@ function BookingDetail() {
     "checked-in": "green",
     "checked-out": "silver",
   };
-  if (isLoding || booking == undefined) <Spinner />;
+  if (isLoding) return <Spinner />;
+  if (!booking) return <Empty resourceName="booking" />;
   return (
     <>
       <Row type="horizontal">

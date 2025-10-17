@@ -35,8 +35,6 @@ const FilterButton = styled.button`
 `;
 
 const Filter = ({ fitlerField, options }) => {
-  console.log(fitlerField);
-
   const [searchParams, setSearchParams] = useSearchParams();
   const handleClick = (value) => {
     searchParams.set(fitlerField, value);

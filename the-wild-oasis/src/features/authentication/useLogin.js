@@ -18,7 +18,7 @@ export const useLogin = () => {
     onError: (err) => {
       console.log("Error", err);
 
-      toast.error("Invalid email or password");
+      toast.error(`${err?.message}`);
     },
   });
   return { isLogging, logging };
